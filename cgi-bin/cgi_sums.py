@@ -5,5 +5,8 @@ import cgitb
 cgitb.enable()
 
 print("Content-type: text/plain")
-print()
-print("Your job is to make this work")
+print("")
+
+form = cgi.FieldStorage()
+operands = form.getlist('operand')
+print(f'Your total is: {sum(map(int, operands))}')
